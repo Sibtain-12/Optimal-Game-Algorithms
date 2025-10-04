@@ -105,6 +105,7 @@ public:
     
     // Input sudoku from user
     void inputBoard() {
+        cout << "\n---------------------------------------\n\n";
         cout << "Enter the Sudoku puzzle (use 0 for empty cells):\n";
         cout << "Enter 9 numbers per row, separated by spaces:\n\n";
         
@@ -124,6 +125,7 @@ public:
     
     // Alternative: Quick input (single line per row)
     void inputBoardCompact() {
+        cout << "\n---------------------------------------\n\n";
         cout << "Enter the Sudoku puzzle (9 rows of 9 digits, use 0 for empty):\n";
         cout << "Example: 530070000\n\n";
         
@@ -203,7 +205,9 @@ public:
 int main() {
     SudokuSolver solver;
     
-    cout << "=== Optimized Sudoku Solver ===\n\n";
+    cout << "\n=========================================\n";
+    cout << "              Sudoku Solver          ";
+    cout << "\n=========================================\n\n";
     cout << "Choose input method:\n";
     cout << "1. Space-separated input\n";
     cout << "2. Compact input (9 digits per line)\n";
@@ -227,15 +231,18 @@ int main() {
         return 1;
     }
     
+    cout << "It is Solvable\n\n";
     cout << "Solving...\n";
     
     if (solver.solvePuzzle()) {
-        cout << "✓ Solution found!\n";
+        cout << "Solution found!\n";
         cout << "\nSolved Puzzle:";
         solver.printBoard();
+        cout << "Done\n";
     } else {
-        cout << "✗ No solution exists for this puzzle.\n";
+        cout << "No solution exists for this puzzle.\n";
     }
+    cout << "=========================================\n";
     
     return 0;
 }
