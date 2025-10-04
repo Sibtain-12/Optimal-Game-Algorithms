@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
-#include "test.h"
 
 /*
  * The status of a line.
