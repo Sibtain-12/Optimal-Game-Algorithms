@@ -207,7 +207,7 @@ void read_game_board(GameBoard& gameBoard){
 
 int main(){
     GameBoard initialBoard;
-    read_game_board(initialBoard);
+    read_game_board(initialBoard);           // you can give the input by removing comment in "read_game_board" function
 
     cout << endl << "initial board" << endl;
     display_board(initialBoard);
