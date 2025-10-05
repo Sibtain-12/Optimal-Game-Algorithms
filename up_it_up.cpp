@@ -14,11 +14,6 @@ struct GameBoard{
     int grid[3][3];
 };
 
-enum {
-    PLAYER_X=1,
-    PLAYER_O=2
-};
-
 void display_board(const GameBoard& gameBoard){
     for(int row=0;row<3;row++){
         for(int col=0;col<3;col++){
@@ -192,17 +187,13 @@ vector<char> solve(const GameBoard& initialBoard){
 void read_game_board(GameBoard& gameBoard){
     for(int row=0;row<3;row++){
         for(int col=0;col<3;col++){
-            if(row * col == 1){
-                gameBoard.grid[row][col] = 0;
-            }
-            else{
-                int value = 2;
-                // cin>>value;
-                assert(value != 0);
-                gameBoard.grid[row][col] = value;
-            }
+            int value = 2;
+            // cin>>value;
+            if (row * col != 1) assert(value != 0);
+            gameBoard.grid[row][col] = value;
         }
     }
+    gameBoard.grid[1][1] = 0;
 }
 
 int main(){
@@ -220,8 +211,9 @@ int main(){
     }
 
     cout << "Required move for empty space to reach final results : " << endl;
-    for(char move : moves){
-        cout << move << " -> ";
+    for(int i=0; i<moves.size(); i++){
+        if (i == moves.size()-1) cout << moves[i] << endl;
+        else cout << moves[i] << " -> ";
     }
     return  0;
 }
